@@ -26,6 +26,10 @@ brew update
 
 # Install all our dependencies with bundle (See Brewfile)
 brew tap homebrew/bundle
+
+# Rosetta is required for microsoft teams
+softwareupdate --install-rosetta 
+
 brew bundle --file $DOTFILES/Brewfile
 
 # Install PHP extensions with PECL

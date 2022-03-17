@@ -7,7 +7,7 @@ tap 'nicoverbruggen/homebrew-cask'
 
 # Binaries
 brew 'awscli'
-brew 'bash' # Latest Bash version
+brew 'bash'
 brew 'coreutils' # Those that come with macOS are outdated
 brew 'ffmpeg'
 brew 'gh'
@@ -16,7 +16,9 @@ brew 'gnupg'
 brew 'grep'
 brew 'httpie'
 brew 'mackup'
+brew 'mailhog'
 brew "openjdk"
+brew 'openvpn'
 brew 'mas' # Mac App Store manager
 brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
 brew 'svn' # Needed to install fonts
@@ -54,15 +56,12 @@ cask 'figma'
 cask 'firefox'
 cask 'github'
 cask 'gpg-suite'
-cask 'harvest'
 cask 'imageoptim'
 cask 'insomnia'
 cask 'iterm2'
-cask 'mailhog'
 cask 'microsoft-office'
-cask 'microsoft-teams'
+cask 'microsoft-teams' # requires rosetta
 cask 'notion'
-cask 'openvpn'
 cask 'pastebot'
 cask 'phpmon'
 cask 'rectangle'
@@ -81,7 +80,7 @@ cask 'vlc'
 cask 'whatsapp'
 cask 'zoom'
 
-# Fonts
+# Fonts 
 cask 'font-lato'
 cask 'font-open-sans'
 cask 'font-roboto'
@@ -91,8 +90,7 @@ cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
 
 # Mac App Store
-mas 'Byword', id: 420212497
 mas 'Keynote', id: 409183694
 mas 'Numbers', id: 409203825
 mas 'Speedtest', id: 1153157709
-mas 'Tweetbot', id: 1384080005
+mas 'harvest', id: 506189836
