@@ -2,10 +2,8 @@
 
 echo "Setting up your Mac..."
 
-# Check for Oh My Zsh and install if we don't have it
-if test ! $(which omz); then
-  /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
-  # TODO: shell gets reloaded and interrupts the installation process.
+if [ ! -d ~/.znap/znap ]; then 
+  sh -c "$(git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/.znap/znap)"
 fi
 
 # Check for Homebrew and install if we don't have it
