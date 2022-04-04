@@ -22,6 +22,9 @@ brew 'openvpn'
 brew 'mas' # Mac App Store manager
 brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
 brew 'svn' # Needed to install fonts
+brew 'pcre2' # Needed to build swoole
+brew 'openssl' # Needed to build swoole
+brew 'starship' # fancy shell prompt
 
 # Spatie Medialibrary
 brew 'jpegoptim'
@@ -77,8 +80,12 @@ cask 'tuple'
 cask 'visual-studio-code'
 cask 'vlc'
 cask 'zoom'
+cask 'gitkraken'
+cask 'basecamp'
 
-# Fonts 
+# Fonts
+cask 'font-fira-code'
+cask 'font-fira-code-nerd-font'
 cask 'font-lato'
 cask 'font-open-sans'
 cask 'font-roboto'

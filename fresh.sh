@@ -1,5 +1,14 @@
 #!/bin/sh
 
+# Path to your dotfiles.
+export DOTFILES=$HOME/.dotfiles
+
+# Paths to openssl to build pecl extensions (swoole)
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
+
 echo "Setting up your Mac..."
 
 if [ ! -d ~/.znap/znap ]; then 
@@ -12,7 +21,6 @@ if test ! $(which brew); then
 
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
-  # TODO: reload shell, so it can find homebrew.
 fi
 
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
@@ -31,15 +39,20 @@ softwareupdate --install-rosetta
 brew bundle --file $DOTFILES/Brewfile
 
 # Install PHP extensions with PECL
-pecl install imagick redis swoole
+pecl install imagick redis
+
+# Symlink pcre2, so pecl can find it when installing / building (needed for swoole)
+sudo mkdir -p /usr/local/include
+sudo ln -s /opt/homebrew/include/pcre2.h /usr/local/include/
+
+# Install swoole with all features
+yes | pecl install swoole
 
 # Install global Composer packages
-/usr/local/bin/composer global require laravel/installer laravel/valet tightenco/takeout
+/opt/homebrew/bin/composer global require laravel/installer laravel/valet tightenco/takeout
 
 # Install Laravel Valet
-$HOME/.composer/vendor/bin/valet install
-
-/opt/homebrew/bin/npm install -g yarn pnpm
+$HOME/.config/composer/vendor/bin/valet install
 
 # Create a Sites directory
 mkdir -p $HOME/git/clickbar

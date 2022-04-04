@@ -1,6 +1,9 @@
 # Path to your dotfiles.
 export DOTFILES=$HOME/.dotfiles
 
+source $DOTFILES/path.zsh
+source $DOTFILES/aliases.zsh
+
 # Load zsh-snap (znap) plugin manager
 zstyle ':znap:*' repos-dir ~/.znap
 source ~/.znap/znap/znap.zsh
