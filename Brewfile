@@ -44,6 +44,7 @@ brew 'nginx'
 brew 'node'
 brew 'redis'
 brew 'yarn'
+brew 'pnpm'
 
 # Apps
 cask '1password'
